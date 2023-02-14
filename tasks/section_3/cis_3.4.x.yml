@@ -1,8 +1,20 @@
 ---
-- name: "AUTOMATED | 3.4.1 | PATCH | Ensure DCCP is disabled"
+- name: copy dccp script
   var:
     application: dccp
-  script: blaklist.j2
+  template:
+    src: blaklist.j2
+    dest: /tmp/dccp.sh
+  tags:
+      - level2-server
+      - level2-workstation
+      - automated
+      - patch
+      - rule_3.4.1
+      - dccp  
+      
+- name: "AUTOMATED | 3.4.1 | PATCH | Ensure DCCP is disabled"
+  script: /tmp/dccp.sh
   when:
       - ubtu20cis_rule_3_4_1
   tags:
