@@ -1,10 +1,8 @@
 ---
 - name: "AUTOMATED | 3.4.1 | PATCH | Ensure DCCP is disabled"
-  lineinfile:
-      path: /etc/modprobe.d/dccp.conf
-      regexp: '^(#)?install dccp(\\s|$)'
-      line: 'install dccp /bin/true'
-      create: yes
+  var:
+    application: dccp
+  script: blaklist.j2
   when:
       - ubtu20cis_rule_3_4_1
   tags:
