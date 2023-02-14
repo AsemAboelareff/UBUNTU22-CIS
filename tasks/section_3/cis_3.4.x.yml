@@ -1,6 +1,6 @@
 ---
 - name: copy dccp script
-  var:
+  vars:
     application: dccp
   template:
     src: blaklist.j2
