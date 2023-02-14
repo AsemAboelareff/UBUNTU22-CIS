@@ -213,8 +213,8 @@
       group: root
       mode: 0600
   notify: restart auditd
-  when:
-      - ubtu20cis_rule_4_1_14
+#  when:
+#      - ubtu20cis_rule_4_1_14
   tags:
       - level2-server
       - level2-workstation

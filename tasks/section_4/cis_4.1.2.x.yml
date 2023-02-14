@@ -3,7 +3,7 @@
   lineinfile:
       dest: /etc/audit/auditd.conf
       regexp: "^max_log_file( |=)"
-      line: "max_log_file = {{ ubtu20cis_max_log_file_size }}"
+      line: "max_log_file = 32"
       state: present
   notify: restart auditd
   when:

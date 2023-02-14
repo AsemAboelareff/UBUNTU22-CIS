@@ -25,12 +25,21 @@
       - rule_3.4.1
       - dccp
 
+- name: copy sctp script
+  vars:
+    application: sctp
+  template:
+    src: blacklist.j2
+    dest: /tmp/sctp.sh
+  tags:
+      - level2-server
+      - level2-workstation
+      - automated
+      - patch
+      - rule_3.4.2
+      - sctp
 - name: "AUTOMATED | 3.4.2 | PATCH | Ensure SCTP is disabled"
-  lineinfile:
-      path: /etc/modprobe.d/sctp.conf
-      regexp: "^(#)?install sctp(\\s|$)"
-      line: 'install sctp /bin/true'
-      create: yes
+  script: /tmp/sctp.sh
   when:
       - ubtu20cis_rule_3_4_2
   tags:
@@ -41,12 +50,21 @@
       - rule_3.4.2
       - sctp
 
+- name: copy rds script
+  vars:
+    application: rds
+  template:
+    src: blacklist.j2
+    dest: /tmp/rds.sh
+  tags:
+      - level2-server
+      - level2-workstation
+      - automated
+      - patch
+      - rule_3.4.3
+      - rds
 - name: "AUTOMATED | 3.4.3 | PATCH | Ensure RDS is disabled"
-  lineinfile:
-      path: /etc/modprobe.d/rds.conf
-      regexp: '^(#)?install rds(\\s|$)'
-      line: 'install rds /bin/true'
-      create: yes
+  script: /tmp/rds.sh
   when:
       - ubtu20cis_rule_3_4_3
   tags:
@@ -57,12 +75,21 @@
       - rule_3.4.3
       - rds
 
+- name: copy tipc script
+  vars:
+    application: tipc
+  template:
+    src: blacklist.j2
+    dest: /tmp/tipc.sh
+  tags:
+      - level2-server
+      - level2-workstation
+      - automated
+      - patch
+      - rule_3.4.4
+      - tipc
 - name: "AUTOMATED | 3.4.4 | PATCH | Ensure TIPC is disabled"
-  lineinfile:
-      path: /etc/modprobe.d/tipc.conf
-      regexp: '^(#)?install tipc(\\s|$)'
-      line: install tipc /bin/true
-      create: yes
+  script: /tmp/tipc.sh
   when:
       - ubtu20cis_rule_3_4_4
   tags:

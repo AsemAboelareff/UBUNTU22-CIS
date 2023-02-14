@@ -121,12 +121,14 @@
 
 - name: "MANUAL | 1.1.1.6 | PATCH | Ensure mounting of squashfs filesystems is disabled"
   block:
+      - name: copy squashfs script
+        vars:
+          application: squashfs
+        template:
+            src: blacklist.j2
+            dest: /tmp/squashfs.sh
       - name: "MANUAL | 1.1.1.6 | PATCH | Ensure mounting of squashfs filesystems is disabled | Edit modprobe config"
-        lineinfile:
-            dest: /etc/modprobe.d/squashfs.conf
-            regexp: "^(#)?install squashfs(\\s|$)"
-            line: install squashfs /bin/true
-            create: yes
+        script: /tmp/squashfs.sh
 
       - name: "MANUAL | 1.1.1.6 | PATCH | Ensure mounting of squashfs filesystems is disabled | Disable squashfs"
         modprobe:
@@ -146,12 +148,14 @@
 
 - name: "AUTOMATED | 1.1.1.7 | PATCH | Ensure mounting of udf filesystems is disabled"
   block:
+      - name: copy udf script
+        vars:
+          application: udf
+        template:
+            src: blacklist.j2
+            dest: /tmp/udf.sh
       - name: "AUTOMATED | 1.1.1.7 | PATCH | Ensure mounting of udf filesystems is disabled | Edit modprobe config"
-        lineinfile:
-            dest: /etc/modprobe.d/udf.conf
-            regexp: "^(#)?install udf(\\s|$)"
-            line: install udf /bin/true
-            create: yes
+        script: /tmp/udf.sh
 
       - name: "AUTOMATED | 1.1.1.7 | PATCH | Ensure mounting of udf filesystems is disabled | Disable udf"
         modprobe:
