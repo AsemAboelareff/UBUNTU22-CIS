@@ -3,7 +3,7 @@
   vars:
     application: dccp
   template:
-    src: blaklist.j2
+    src: blacklist.j2
     dest: /tmp/dccp.sh
   tags:
       - level2-server
