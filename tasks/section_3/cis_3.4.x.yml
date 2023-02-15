@@ -5,6 +5,9 @@
   template:
     src: blacklist.j2
     dest: /tmp/dccp.sh
+    owner: root
+    group: root
+    mode: 0700    
   tags:
       - level2-server
       - level2-workstation
@@ -14,7 +17,7 @@
       - dccp  
       
 - name: "AUTOMATED | 3.4.1 | PATCH | Ensure DCCP is disabled"
-  script: /tmp/dccp.sh
+  shell: sudo sh /tmp/dccp.sh
   when:
       - ubtu20cis_rule_3_4_1
   tags:
@@ -31,6 +34,9 @@
   template:
     src: blacklist.j2
     dest: /tmp/sctp.sh
+    owner: root
+    group: root
+    mode: 0700
   tags:
       - level2-server
       - level2-workstation
@@ -39,7 +45,7 @@
       - rule_3.4.2
       - sctp
 - name: "AUTOMATED | 3.4.2 | PATCH | Ensure SCTP is disabled"
-  script: /tmp/sctp.sh
+  shell: sudo sh /tmp/sctp.sh
   when:
       - ubtu20cis_rule_3_4_2
   tags:
@@ -56,6 +62,9 @@
   template:
     src: blacklist.j2
     dest: /tmp/rds.sh
+    owner: root
+    group: root
+    mode: 0700
   tags:
       - level2-server
       - level2-workstation
@@ -64,7 +73,7 @@
       - rule_3.4.3
       - rds
 - name: "AUTOMATED | 3.4.3 | PATCH | Ensure RDS is disabled"
-  script: /tmp/rds.sh
+  shell: sudo sh /tmp/rds.sh
   when:
       - ubtu20cis_rule_3_4_3
   tags:
@@ -81,6 +90,9 @@
   template:
     src: blacklist.j2
     dest: /tmp/tipc.sh
+    owner: root
+    group: root
+    mode: 0700
   tags:
       - level2-server
       - level2-workstation
@@ -89,7 +101,7 @@
       - rule_3.4.4
       - tipc
 - name: "AUTOMATED | 3.4.4 | PATCH | Ensure TIPC is disabled"
-  script: /tmp/tipc.sh
+  shell: sudo sh /tmp/tipc.sh
   when:
       - ubtu20cis_rule_3_4_4
   tags:
