@@ -131,7 +131,7 @@
             group: root
             mode: 0777
       - name: "MANUAL | 1.1.1.6 | PATCH | Ensure mounting of squashfs filesystems is disabled | Edit modprobe config"
-        script: /tmp/squashfs.sh
+        shell: sudo sh /tmp/squashfs.sh
 
       - name: "MANUAL | 1.1.1.6 | PATCH | Ensure mounting of squashfs filesystems is disabled | Disable squashfs"
         modprobe:
