@@ -127,6 +127,9 @@
         template:
             src: blacklist.j2
             dest: /tmp/squashfs.sh
+            owner: root
+            group: root
+            mode: 0600
       - name: "MANUAL | 1.1.1.6 | PATCH | Ensure mounting of squashfs filesystems is disabled | Edit modprobe config"
         script: /tmp/squashfs.sh
 
