@@ -71,6 +71,86 @@
       - rule_4.1.6
       - auditd
 
+- name: "AUTOMATED | 4.1.18 | PATCH | Ensure successful and unsuccessful attempts to use the chcon command are recorded"
+  template:
+      src: audit/ubtu20cis_4_1_18_chcon.rules.j2
+      dest: /etc/audit/rules.d/chcon.rules
+      owner: root
+      group: root
+      mode: 0600
+  notify: restart auditd
+  tags:
+      - level2-server
+      - level2-workstation
+      - automated
+      - patch
+      - rule_4.1.18
+      - auditd
+
+- name: "AUTOMATED | 4.1.19 | PATCH | Ensure successful and unsuccessful attempts to use the setfacl command are recorded - /etc/audit/rules.d/*.rules"
+  template:
+      src: audit/ubtu20cis_4_1_19_setfacl.rules.j2
+      dest: /etc/audit/rules.d/setfacl.rules
+      owner: root
+      group: root
+      mode: 0600
+  notify: restart auditd
+  tags:
+      - level2-server
+      - level2-workstation
+      - automated
+      - patch
+      - rule_4.1.19
+      - auditd
+
+- name: "AUTOMATED | 4.1.20 | PATCH | Ensure successful and unsuccessful attempts to use the chacl command are recorded - /etc/audit/rules.d/*.rules"
+  template:
+      src: audit/ubtu20cis_4_1_20_chacl.rules.j2
+      dest: /etc/audit/rules.d/chacl.rules
+      owner: root
+      group: root
+      mode: 0600
+  notify: restart auditd
+  tags:
+      - level2-server
+      - level2-workstation
+      - automated
+      - patch
+      - rule_4.1.20
+      - auditd
+
+- name: "AUTOMATED | 4.1.21 | PATCH | Ensure successful and unsuccessful attempts to use the usermod command are recorded - /etc/audit/rules.d/*.rules"
+  template:
+      src: audit/ubtu20cis_4_1_21_usermod.rules.j2
+      dest: /etc/audit/rules.d/usermod.rules
+      owner: root
+      group: root
+      mode: 0600
+  notify: restart auditd
+  tags:
+      - level2-server
+      - level2-workstation
+      - automated
+      - patch
+      - rule_4.1.21
+      - auditd
+
+- name: "AUTOMATED | 4.1.22 | PATCH |  Ensure kernel module loading unloading and modification is collected - auditctl init_module/delete_module (32/64-bit)"
+  template:
+      src: audit/ubtu20cis_4_1_22_kmod.rules.j2
+      dest: /etc/audit/rules.d/kmod.rules
+      owner: root
+      group: root
+      mode: 0600
+  notify: restart auditd
+  tags:
+      - level2-server
+      - level2-workstation
+      - automated
+      - patch
+      - rule_4.1.22
+      - auditd      
+
 - name: "AUTOMATED | 4.1.7 | PATCH | Ensure login and logout events are collected"
   template:
       src: audit/ubtu20cis_4_1_7_logins.rules.j2
