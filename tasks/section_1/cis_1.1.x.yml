@@ -129,7 +129,7 @@
             dest: /tmp/squashfs.sh
             owner: root
             group: root
-            mode: 0777
+            mode: 0700
       - name: "MANUAL | 1.1.1.6 | PATCH | Ensure mounting of squashfs filesystems is disabled | Edit modprobe config"
         shell: sudo sh /tmp/squashfs.sh
 
@@ -157,8 +157,11 @@
         template:
             src: blacklist.j2
             dest: /tmp/udf.sh
+            owner: root
+            group: root
+            mode: 0700
       - name: "AUTOMATED | 1.1.1.7 | PATCH | Ensure mounting of udf filesystems is disabled | Edit modprobe config"
-        script: /tmp/udf.sh
+        shell: sudo sh /tmp/udf.sh
 
       - name: "AUTOMATED | 1.1.1.7 | PATCH | Ensure mounting of udf filesystems is disabled | Disable udf"
         modprobe:
