@@ -151,6 +151,24 @@
       - rule_4.1.22
       - auditd      
 
+
+- name: "AUTOMATED | 4.1.23 | PATCH |  Ensure actions as another user are always logged(32/64-bit)"
+  template:
+      src: audit/ubtu20cis_4_1_23_emulation.rules.j2
+      dest: /etc/audit/rules.d/emulation.rules
+      owner: root
+      group: root
+      mode: 0600
+  notify: restart auditd
+  tags:
+      - level2-server
+      - level2-workstation
+      - automated
+      - patch
+      - rule_4.1.23
+      - auditd
+
+
 - name: "AUTOMATED | 4.1.7 | PATCH | Ensure login and logout events are collected"
   template:
       src: audit/ubtu20cis_4_1_7_logins.rules.j2
@@ -357,3 +375,37 @@
       - patch
       - rule_4.1.17
       - auditd
+
+- name: "AUTOMATED | 4.1.24 | PATCH | Ensure events that modify the sudo log file are collected "
+  template:
+      src: audit/ubtu20cis_4_1_24_sudoerslog.rules.j2
+      dest: /etc/audit/rules.d/sudoerslog.rules
+      owner: root
+      group: root
+      mode: 0600
+  notify: restart auditd
+  tags:
+      - level2-server
+      - level2-workstation
+      - automated
+      - scored
+      - patch
+      - rule_4.1.24
+      - auditd
+
+- name: "AUTOMATED | 4.1.25 | PATCH | Ensure unsuccessful file access attempts are collected  "
+  template:
+      src: audit/ubtu20cis_4_1_25_fileaccess.rules.j2
+      dest: /etc/audit/rules.d/fileaccess.rules
+      owner: root
+      group: root
+      mode: 0600
+  notify: restart auditd
+  tags:
+      - level2-server
+      - level2-workstation
+      - automated
+      - scored
+      - patch
+      - rule_4.1.25
+      - auditd      

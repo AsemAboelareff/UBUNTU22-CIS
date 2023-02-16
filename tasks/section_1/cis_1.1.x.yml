@@ -131,7 +131,7 @@
             group: root
             mode: 0700
       - name: "MANUAL | 1.1.1.6 | PATCH | Ensure mounting of squashfs filesystems is disabled | Edit modprobe config"
-        shell: sudo sh /tmp/squashfs.sh
+        shell: sudo bash /tmp/squashfs.sh
 
       - name: "MANUAL | 1.1.1.6 | PATCH | Ensure mounting of squashfs filesystems is disabled | Disable squashfs"
         modprobe:
@@ -161,7 +161,7 @@
             group: root
             mode: 0700
       - name: "AUTOMATED | 1.1.1.7 | PATCH | Ensure mounting of udf filesystems is disabled | Edit modprobe config"
-        shell: sudo sh /tmp/udf.sh
+        shell: sudo bash /tmp/udf.sh
 
       - name: "AUTOMATED | 1.1.1.7 | PATCH | Ensure mounting of udf filesystems is disabled | Disable udf"
         modprobe:
