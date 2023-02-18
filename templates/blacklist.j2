@@ -10,7 +10,7 @@ fi
 if ! lsmod | grep '$l_mname' > /dev/null 2>&1;
 then
         echo -e ' - unloading module '$l_mname''
-        modprobe -r $l_mname
+        modprobe -r "$l_mname"
 fi
 if ! grep -Pq -- '^h*blacklisth+$l_mnameb' /etc/modprobe.d/*;
 then
