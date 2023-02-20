@@ -17,7 +17,7 @@
       - dccp  
       
 - name: "AUTOMATED | 3.4.1 | PATCH | Ensure DCCP is disabled"
-  shell: sudo sh /tmp/dccp.sh
+  shell: sudo bash /tmp/dccp.sh
   when:
       - ubtu20cis_rule_3_4_1
   tags:
@@ -45,7 +45,7 @@
       - rule_3.4.2
       - sctp
 - name: "AUTOMATED | 3.4.2 | PATCH | Ensure SCTP is disabled"
-  shell: sudo sh /tmp/sctp.sh
+  shell: sudo bash /tmp/sctp.sh
   when:
       - ubtu20cis_rule_3_4_2
   tags:
@@ -73,7 +73,7 @@
       - rule_3.4.3
       - rds
 - name: "AUTOMATED | 3.4.3 | PATCH | Ensure RDS is disabled"
-  shell: sudo sh /tmp/rds.sh
+  shell: sudo bash /tmp/rds.sh
   when:
       - ubtu20cis_rule_3_4_3
   tags:
@@ -101,7 +101,7 @@
       - rule_3.4.4
       - tipc
 - name: "AUTOMATED | 3.4.4 | PATCH | Ensure TIPC is disabled"
-  shell: sudo sh /tmp/tipc.sh
+  shell: sudo bash /tmp/tipc.sh
   when:
       - ubtu20cis_rule_3_4_4
   tags:
