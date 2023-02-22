@@ -36,9 +36,12 @@
   when: ansible_virtualization_type != "docker"
 
 - name: restart auditd
-  service:
-      name: auditd
-      state: restarted
+  command: /usr/sbin/service auditd reload
+  args:
+    warn: false
+  # service:
+  #     name: auditd
+  #     state: restarted
   when:
       - not ubtu20cis_skip_for_travis
   tags:
