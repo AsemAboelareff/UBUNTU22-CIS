@@ -208,13 +208,14 @@
 - name: "AUTOMATED | 4.1.9 | PATCH | Ensure discretionary access control permission modification events are collected"
   shell: auditctl {{ item }}
   loop:
-    - -a always,exit -F arch=b64 -S sethostname,setdomainname -k system-locale 
-    - -a always,exit -F arch=b32 -S sethostname,setdomainname -k system-locale 
-    - -w /etc/issue -p wa -k system-locale 
-    - -w /etc/issue.net -p wa -k system-locale 
-    - -w /etc/hosts -p wa -k system-locale 
-    - -w /etc/networks -p wa -k system-locale 
-    - -w /etc/network/ -p wa -k system-locale 
+    - -a always,exit -F arch=b64 -S sethostname,setdomainname -k system-locale
+    - -a always,exit -F arch=b32 -S sethostname,setdomainname -k system-locale
+    - -w /etc/issue -p wa -k system-locale
+    - -w /etc/issue.net -p wa -k system-locale
+    - -w /etc/hosts -p wa -k system-locale
+    - -w /etc/networks -p wa -k system-locale
+    - -w /etc/network/ -p wa -k system-locale
+
 #   template:
 #       src: audit/ubtu20cis_4_1_9_permmod.rules.j2
 #       dest: /etc/audit/rules.d/perm_mod.rules
